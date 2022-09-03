@@ -1,0 +1,108 @@
+<!-- Faça uma página que  contenha uma caixa de texto e um botão adicionar.
+1. O usuário pode digitar um texto e ao clicar em adicionar o sistema vai adicionar um paragrafo com o texto digitado pelo usuário e deixar a caixa de texto limpa pra receber novos textos.
+2.Quando o usuário clicar no parágrafo o mesmo vai sumir.
+3. Esse sistema terá dois botões pra aumentar e diminuir a fonte do texto e também terá 5 botões com cores pré difinidas, esses botões vão afetar todos os parágrafos digitados. -->
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Atividade Jquery</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$("#adicionar").click(function(){
+				$("#ptexto").text($("#ctexto").val());
+				$("#ctexto").val("");
+			})
+			$("#mais").click(function(){
+				var tamanho = parseInt ($("#ptexto").css("font-size"));
+				tamanho++;
+				$("#ptexto").css("font-size", tamanho);
+			});
+			$("#menos").click(function(){
+				var tamanho = parseInt ($("#ptexto").css("font-size"));
+				tamanho--;
+				$("#ptexto").css("font-size", tamanho);
+			});
+			$("#azul").click(function(){
+				$("#ptexto").css("color", "blue");
+			});
+			$("#verde").click(function(){
+				$("#ptexto").css("color", "green");
+			});
+			$("#amarelo").click(function(){
+				$("#ptexto").css("color", "yellow");
+			});
+			$("#vermelho").click(function(){
+				$("#ptexto").css("color", "red");
+			});
+			$("#Preto").click(function(){
+				$("#ptexto").css("color", "black");
+			});
+			$("#ptexto").click(function(){
+				$(this).text('');
+			})
+		});
+	</script>
+</head>
+<body>
+	<div id="container">
+		<h1>Digita aqui Diógenes:</h1>
+		<input type="text" placeholder="Digite seu texto aqui" id="ctexto"><br>
+		<input type="button" value="adicionar" id="adicionar"><br>
+		<p id="ptexto">Aqui aparecerá aqui</p>
+		<p id="botoes">
+			<input type="button" value="+" id="mais">
+			<input type="button" value="-" id="menos">
+			<input type="button" value="azul" id="azul">
+			<input type="button" value="verde" id="verde">
+			<input type="button" value="amarelo" id="amarelo">
+			<input type="button" value="vermelho" id="vermelho">
+			<input type="button" value="Preto" id="Preto">
+		</p>
+	</div>
+
+	<style type="text/css">
+
+		body{
+			background: url(https://img.elo7.com.br/product/zoom/12FFF93/feltro-santa-fe-liso-071-roxo-feltro-santa-fe.jpg);
+			padding-top: 5vh;
+		}
+		h1{
+			text-align: center;
+		}
+		#container{
+			width: 500px;
+			margin-left: auto;
+			margin-right: auto;
+			background-color: #fff;
+			border-radius: 10px;
+			padding: 25px;
+			padding-top: 20px;
+		}
+		#ctexto{
+			display: block;
+			width: 95%;
+			border:none;
+			border-bottom: 2px solid #323232;
+			padding: 10px;
+			margin-top: 20px;
+		}
+		#ptexto{
+			display: block;
+			width: 95%;
+			border:none;
+			border-bottom: 2px solid #323232;
+			padding: 10px;
+			margin-top: 20px;
+		}
+		#adicionar{
+			float: right;
+		}
+		#botoes{
+			text-align: center;
+		}
+	</style>
+</body>
+</html>
